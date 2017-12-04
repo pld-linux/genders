@@ -1,0 +1,11 @@
+--- genders-1.22/src/extensions/java/gov/llnl/lc/chaos/Genders.java.orig	2012-08-27 22:03:58.000000000 +0200
++++ genders-1.22/src/extensions/java/gov/llnl/lc/chaos/Genders.java	2017-12-03 22:08:59.025996109 +0100
+@@ -167,7 +167,7 @@
+ 
+     /**
+      * Returns nodes specified via the specified query.  Signify union
+-     * with '||', intersection with '&&', * difference with '--', and
++     * with '||', intersection with '&amp;&amp;', * difference with '--', and
+      * complement with '~'.  Operations are performed left to
+      * right. Parentheses can be used to change the order of
+      * operations.

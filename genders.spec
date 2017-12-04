@@ -15,6 +15,7 @@ Group:		Libraries
 Source0:	https://github.com/chaos/genders/releases/download/genders-1-22-1/%{name}-%{version}.tar.gz
 # Source0-md5:	9ea59a024dcbddb85b0ed25ddca9bc8e
 Patch0:		%{name}-make.patch
+Patch1:		%{name}-javadoc.patch
 URL:		https://github.com/chaos/genders
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -186,6 +187,7 @@ Interfejs Pythona do biblioteki genders.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -193,6 +195,7 @@ Interfejs Pythona do biblioteki genders.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+CPPFLAGS="%{rpmcppflags} -I%{_jvmdir}/java/include -I%{_jvmdir}/java/include/linux"
 %configure \
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static} \
@@ -269,9 +272,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files compat
 %defattr(644,root,root,755)
-%dir %{_libdir}/genders
-%attr(755,root,root) %{_libdir}/genders/gendlib.pl
-%attr(755,root,root) %{_libdir}/genders/hostlist.pl
+%dir %{_prefix}/lib/genders
+%attr(755,root,root) %{_prefix}/lib/genders/gendlib.pl
+%attr(755,root,root) %{_prefix}/lib/genders/hostlist.pl
 %{_mandir}/man3/gendlib.3*
 
 %if %{with java}
