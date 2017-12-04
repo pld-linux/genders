@@ -8,7 +8,7 @@ Summary:	Static cluster configuration database
 Summary(pl.UTF-8):	Statyczna baza danych konfiguracji klastra
 Name:		genders
 Version:	1.22
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/chaos/genders/releases
@@ -117,7 +117,7 @@ Statyczna biblioteka gendersplusplus.
 Summary:	Compatibility library for earlier releases of genders
 Summary(pl.UTF-8):	Biblioteka dla zgodności ze starszymi wydaniami genders
 Group:		Libraries
-Requires:	perl-gender = %{version}-%{release}
+Requires:	perl-genders = %{version}-%{release}
 
 %description compat
 Genders API that is compatible with earlier releases of genders.
