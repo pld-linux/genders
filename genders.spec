@@ -8,7 +8,7 @@ Summary:	Static cluster configuration database
 Summary(pl.UTF-8):	Statyczna baza danych konfiguracji klastra
 Name:		genders
 Version:	1.22
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/chaos/genders/releases
@@ -147,18 +147,6 @@ Javadoc documentation for Java interface to genders library.
 
 %description -n java-genders-javadoc -l pl.UTF-8
 Dokumentacja Javadoc Interfejsu Javy do biblioteki genders.
-
-%package -n perl-genders
-Summary:	Perl interface to genders library
-Summary(pl.UTF-8):	Interfejs Perla do biblioteki genders
-Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}-%{release}
-
-%description -n perl-genders
-Perl interface to genders library.
-
-%description -n perl-genders -l pl.UTF-8
-Interfejs Perla do biblioteki genders.
 
 %package -n perl-genders
 Summary:	Perl interface to genders library
