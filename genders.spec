@@ -3,7 +3,6 @@
 %bcond_without	java		# Java extensions
 %bcond_without	static_libs	# static library
 #
-%include	/usr/lib/rpm/macros.perl
 Summary:	Static cluster configuration database
 Summary(pl.UTF-8):	Statyczna baza danych konfiguracji klastra
 Name:		genders
