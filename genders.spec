@@ -7,7 +7,7 @@ Summary:	Static cluster configuration database
 Summary(pl.UTF-8):	Statyczna baza danych konfiguracji klastra
 Name:		genders
 Version:	1.22
-Release:	7
+Release:	8
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/chaos/genders/releases
