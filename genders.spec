@@ -6,15 +6,15 @@
 Summary:	Static cluster configuration database
 Summary(pl.UTF-8):	Statyczna baza danych konfiguracji klastra
 Name:		genders
-Version:	1.22
-Release:	8
+Version:	1.27.3
+%define	gittag	%(echo %{version} | tr . -)
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/chaos/genders/releases
-Source0:	https://github.com/chaos/genders/releases/download/genders-1-22-1/%{name}-%{version}.tar.gz
-# Source0-md5:	9ea59a024dcbddb85b0ed25ddca9bc8e
+Source0:	https://github.com/chaos/genders/archive/genders-%{gittag}/%{name}-%{gittag}.tar.gz
+# Source0-md5:	c86a3bc3a0b2c7e5b79c525de50e2f3b
 Patch0:		%{name}-make.patch
-Patch1:		%{name}-javadoc.patch
 URL:		https://github.com/chaos/genders
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -22,12 +22,13 @@ BuildRequires:	bison
 BuildRequires:	flex
 %{?with_java:BuildRequires:	jdk}
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool >= 2:1.5
+BuildRequires:	libtool >= 2:2
 BuildRequires:	perl-ExtUtils-MakeMaker
 BuildRequires:	perl-tools-pod
 BuildRequires:	python-devel
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.745
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -172,9 +173,8 @@ Python interface to genders library.
 Interfejs Pythona do biblioteki genders.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{name}-%{gittag}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -274,7 +274,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n java-genders-javadoc
 %defattr(644,root,root,755)
-%doc %{_docdir}/%{name}-%{version}-javadoc
+%doc %{_docdir}/%{name}-1.27-javadoc
 %endif
 
 %files -n perl-genders

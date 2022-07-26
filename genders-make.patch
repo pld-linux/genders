@@ -9,22 +9,22 @@
  			    -I $(srcdir)/../../libgenders/
  
  src_libGendersjni_la_SOURCES = src/Gendersjni.c
---- genders-1.22/src/extensions/python/Makefile.am.orig	2011-01-07 00:11:33.000000000 +0100
-+++ genders-1.22/src/extensions/python/Makefile.am	2017-12-03 16:36:51.170374833 +0100
-@@ -17,13 +17,13 @@
+--- genders-genders-1-27-3/src/extensions/python/Makefile.am.orig	2022-07-26 20:10:38.900983547 +0200
++++ genders-genders-1-27-3/src/extensions/python/Makefile.am	2022-07-26 20:11:20.930755853 +0200
+@@ -17,13 +17,13 @@ all: genderssetup.py libgendersmodule.c
  	$(PYTHON) genderssetup.py build
  
  install:
--	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)/$(prefix) --exec-prefix=$(PYTHON_DESTDIR)/$(exec_prefix)
-+	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)/$(prefix) --exec-prefix=$(PYTHON_DESTDIR)/$(exec_prefix) --optimize=2
+-	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
++	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
  
  pure_install:
--	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)/$(prefix) --exec-prefix=$(PYTHON_DESTDIR)/$(exec_prefix)
-+	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)/$(prefix) --exec-prefix=$(PYTHON_DESTDIR)/$(exec_prefix) --optimize=2
+-	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
++	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
  
  install-data-local:
--	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)/$(prefix) --exec-prefix=$(PYTHON_DESTDIR)/$(exec_prefix)
-+	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)/$(prefix) --exec-prefix=$(PYTHON_DESTDIR)/$(exec_prefix) --optimize=2
+-	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
++	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
  
  clean: 
  	rm -rf build
