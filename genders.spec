@@ -8,7 +8,7 @@ Summary(pl.UTF-8):	Statyczna baza danych konfiguracji klastra
 Name:		genders
 Version:	1.27.3
 %define	gittag	%(echo %{version} | tr . -)
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/chaos/genders/releases
