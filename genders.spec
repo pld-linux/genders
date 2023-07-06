@@ -188,11 +188,11 @@ Interfejs Pythona do biblioteki genders.
 %{?with_java:CPPFLAGS="%{rpmcppflags} -I%{java_home}/include -I%{java_home}/include/linux"}
 %configure \
 %if %{with java}
-	 ac_cv_prog_JAR="%{java_home}/bin/jar" \
-	 ac_cv_prog_JAVA="%{java_home}/bin/java" \
-	 ac_cv_prog_JAVAC="%{java_home}/bin/javac" \
-	 ac_cv_prog_JAVADOC="%{java_home}/bin/javadoc" \
-	 ac_cv_prog_JAVAH="%{java_home}/bin/javah" \
+	 ac_cv_path_JAR="%{java_home}/bin/jar" \
+	 ac_cv_path_JAVA="%{java_home}/bin/java" \
+	 ac_cv_path_JAVAC="%{java_home}/bin/javac" \
+	 ac_cv_path_JAVADOC="%{java_home}/bin/javadoc" \
+	 ac_cv_path_JAVAH="%{java_home}/bin/javah" \
 %endif
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static} \
