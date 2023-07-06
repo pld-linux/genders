@@ -3,6 +3,9 @@
 %bcond_without	java		# Java extensions
 %bcond_without	static_libs	# static library
 #
+
+%{?with_java:%{?use_default_jdk}}
+
 Summary:	Static cluster configuration database
 Summary(pl.UTF-8):	Statyczna baza danych konfiguracji klastra
 Name:		genders
@@ -20,7 +23,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
-%{?with_java:BuildRequires:	jdk}
+%{?with_java:%{?use_jdk:%buildrequires_jdk}%{!?use_jdk:BuildRequires:	jdk}}
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2
 BuildRequires:	perl-ExtUtils-MakeMaker
@@ -28,7 +31,7 @@ BuildRequires:	perl-tools-pod
 BuildRequires:	python-devel
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.745
+BuildRequires:	rpmbuild(macros) >= 2.021
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -182,8 +185,15 @@ Interfejs Pythona do biblioteki genders.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-CPPFLAGS="%{rpmcppflags} -I%{_jvmdir}/java/include -I%{_jvmdir}/java/include/linux"
+%{?with_java:CPPFLAGS="%{rpmcppflags} -I%{java_home}/include -I%{java_home}/include/linux"}
 %configure \
+%if %{with java}
+	 ac_cv_prog_JAR="%{java_home}/bin/jar" \
+	 ac_cv_prog_JAVA="%{java_home}/bin/java" \
+	 ac_cv_prog_JAVAC="%{java_home}/bin/javac" \
+	 ac_cv_prog_JAVADOC="%{java_home}/bin/javadoc" \
+	 ac_cv_prog_JAVAH="%{java_home}/bin/javah" \
+%endif
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static} \
 	--with-extension-destdir=$RPM_BUILD_ROOT \
