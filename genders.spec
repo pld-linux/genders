@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	java		# Java extensions
-%bcond_without	static_libs	# static library
+%bcond_without	static_libs	# static libraries
 #
 
 %{?with_java:%{?use_default_jdk}}
@@ -187,6 +187,7 @@ Interfejs Pythona do biblioteki genders.
 %{__automake}
 %{?with_java:CPPFLAGS="%{rpmcppflags} -I%{java_home}/include -I%{java_home}/include/linux"}
 %configure \
+	 PYTHON="%{__python}" \
 %if %{with java}
 	 ac_cv_path_JAR="%{java_home}/bin/jar" \
 	 ac_cv_path_JAVA="%{java_home}/bin/java" \
