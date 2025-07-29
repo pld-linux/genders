@@ -15,16 +15,16 @@
  	$(PYTHON) genderssetup.py build
  
  install:
--	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
-+	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
+-	$(PYTHON) genderssetup.py install --single-version-externally-managed --root=/ --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
++	$(PYTHON) genderssetup.py install --single-version-externally-managed --root=/ --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
  
  pure_install:
--	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
-+	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
+-	$(PYTHON) genderssetup.py install --single-version-externally-managed --root=/ --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
++	$(PYTHON) genderssetup.py install --single-version-externally-managed --root=/ --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
  
  install-data-local:
--	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
-+	$(PYTHON) genderssetup.py install --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
+-	$(PYTHON) genderssetup.py install --single-version-externally-managed --root=/ --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix)
++	$(PYTHON) genderssetup.py install --single-version-externally-managed --root=/ --prefix=$(PYTHON_DESTDIR)$(prefix) --exec-prefix=$(PYTHON_DESTDIR)$(exec_prefix) --optimize=2
  
  clean: 
  	rm -rf build

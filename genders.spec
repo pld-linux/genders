@@ -9,14 +9,14 @@
 Summary:	Static cluster configuration database
 Summary(pl.UTF-8):	Statyczna baza danych konfiguracji klastra
 Name:		genders
-Version:	1.27.3
+Version:	1.32.1
 %define	gittag	%(echo %{version} | tr . -)
-Release:	4
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/chaos/genders/releases
 Source0:	https://github.com/chaos/genders/archive/genders-%{gittag}/%{name}-%{gittag}.tar.gz
-# Source0-md5:	c86a3bc3a0b2c7e5b79c525de50e2f3b
+# Source0-md5:	6055e391d25d10c9f4e6331844d97271
 Patch0:		%{name}-make.patch
 URL:		https://github.com/chaos/genders
 BuildRequires:	autoconf >= 2.50
@@ -198,7 +198,7 @@ Interfejs Pythona do biblioteki genders.
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static} \
 	--with-extension-destdir=$RPM_BUILD_ROOT \
-	%{!?with_java:--without-java-extensions} \
+	--with%{!?with_java:out}-java-extensions \
 	--with-perl-vendor-arch
 
 # -j1 due to racy flex/yacc invocation
@@ -285,7 +285,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n java-genders-javadoc
 %defattr(644,root,root,755)
-%doc %{_docdir}/%{name}-1.27-javadoc
+%doc %{_docdir}/%{name}-1.32.1-javadoc
 %endif
 
 %files -n perl-genders
